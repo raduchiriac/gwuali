@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gwuli</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+  var bundlePath = './build/bundle.js';
+
+  if (typeof process !== 'undefined' && process.env.ENVIRONMENT === 'DEV') {
+    bundlePath = 'http://localhost:8080/bundle.js';
+  }
+
+  var head = document.getElementsByTagName('head')[0];
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = bundlePath;
+  script.defer = true;
+  script.async = true;
+  var scriptElements = document.getElementsByTagName("script");
+  var scriptHost = scriptElements[scriptElements.length - 1].setAttribute("src", '');
+  head.appendChild(script);
+  </script>
+</body>
+
+</html>
