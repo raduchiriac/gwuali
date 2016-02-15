@@ -3,6 +3,6 @@ import RaisedButton from 'material-ui/lib/raised-button';
 
 export default class Note extends React.Component {
   render() {
-    return (<RaisedButton label="Ready..." />);
+    return (<RaisedButton label="It's Ready!" />);
   }
 }

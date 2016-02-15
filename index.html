@@ -12,7 +12,7 @@
   var bundlePath = './build/bundle.js';
 
   if (typeof process !== 'undefined' && process.env.ENVIRONMENT === 'DEV') {
-    bundlePath = 'http://localhost:8080/bundle.js';
+    bundlePath = 'http://localhost:8080/build/bundle.js';
   }
 
   var head = document.getElementsByTagName('head')[0];
