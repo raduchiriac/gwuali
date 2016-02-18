@@ -31,13 +31,15 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1",
-    "babel-loader": "^6.2.2",
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
+    "array.prototype.findindex": "^2.0.0",
     "material-ui": "^0.14.4",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-tap-event-plugin": "^0.2.2"
+    "react-tap-event-plugin": "^0.2.2",
+    "uuid": "^2.0.1"
   }
 }

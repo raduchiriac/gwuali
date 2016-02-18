@@ -1,7 +1,12 @@
 import React from 'react';
-import Note from './Note.jsx';
+import NoteList from './NoteList.jsx';
+
 export default class App extends React.Component {
   render() {
-    return <Note />;
+    return (
+      <div>
+        <NoteList id='xxa' />
+      </div>
+    );
   }
 }
