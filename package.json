@@ -36,8 +36,10 @@
   "dependencies": {
     "alt": "^0.18.2",
     "array.prototype.findindex": "^2.0.0",
+    "libs": "^0.1.2",
     "material-ui": "^0.14.4",
     "node-uuid": "^1.4.7",
+    "pouchdb": "^5.3.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-tap-event-plugin": "^0.2.2",

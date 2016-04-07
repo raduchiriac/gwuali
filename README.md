@@ -2,7 +2,7 @@
 
 #### A React + Webpack + Electron skeleton
 
-Flavoured with Babel 6 transforms, Hot Module Replacement, Sass, Google Fonts and Material UI
+Flavoured with Babel 6 transforms, Hot Module Replacement, Sass, PouchDB and Material UI
 
 #### Run locally
 
