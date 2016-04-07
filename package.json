@@ -34,6 +34,7 @@
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
+    "alt": "^0.18.2",
     "array.prototype.findindex": "^2.0.0",
     "material-ui": "^0.14.4",
     "node-uuid": "^1.4.7",
