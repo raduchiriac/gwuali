@@ -30,6 +30,7 @@ export default class App extends React.Component {
     //   db.put(note);
     // });
   }
+
   render() {
     return (
       <div>

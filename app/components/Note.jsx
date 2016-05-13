@@ -5,7 +5,10 @@ import Colors from 'material-ui/lib/styles/colors';
 const styles = {
   noteEdit: {
     paddingLeft: '16px',
-    width: 'calc(100% - 48px)'
+    width: 'calc(100% - 48px)',
+  },
+  note: {
+    minHeight: '3em'
   },
   deleteNoteIco: {
     position: 'absolute',
@@ -48,6 +51,7 @@ export default class Note extends React.Component {
           // onMouseEnter=""
           // onMouseLeave=""
           secondaryText=""
+          style={styles.note}
           onClick={this.edit}
           primaryText={this.props.task}>
 

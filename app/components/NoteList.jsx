@@ -3,6 +3,12 @@ import uuid from 'uuid';
 import Note from './Note.jsx';
 import {List, RaisedButton, SelectableContainerEnhance} from 'material-ui';
 
+import NoteActions from '../actions/NoteAction';
+import NoteStore from '../stores/NoteStore';
+
+import connect from '../decorators/connect';
+
+
 let SelectableList = SelectableContainerEnhance(List);
 
 const styles = {
@@ -12,34 +18,10 @@ const styles = {
   },
 };
 
+@connect(NoteStore)
 export default class NoteList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedIndex: 1,
-      notes: [{
-        id: uuid.v4(),
-        task: 'Publish Electron'
-      }, {
-        id: uuid.v4(),
-        task: 'Learn React'
-      }, {
-        id: uuid.v4(),
-        task: 'What is Flux?'
-      }]
-    };
-    this.addNote = this.addNote.bind(this);
-    this.editNote = this.editNote.bind(this);
-    this.findNote = this.findNote.bind(this);
-    this.deleteNote = this.deleteNote.bind(this);
-  }
-  handleUpdateSelectedIndex(e, index) {
-    this.setState({
-      selectedIndex: index,
-    });
-  }
   render() {
-    const notes = this.state.notes;
+    const notes = this.props.notes;
     return (
       <div>
         <List>
@@ -66,35 +48,13 @@ export default class NoteList extends React.Component {
     );
   }
   addNote() {
-    this.setState({
-      notes: [...this.state.notes, {id: uuid.v4(), task: ''}]
-    });
+    NoteActions.create({task: ''});
+    // TODO: focus on this note
   }
-  editNote(noteId, task) {
-    let notes = this.state.notes;
-    const noteIndex = this.findNote(noteId);
-    if(noteIndex < 0) {
-      return;
-    }
-    notes[noteIndex].task = task;
-    this.setState({notes});
+  editNote(id, task) {
+    NoteActions.update({id, task});
   }
   deleteNote(id) {
-    const notes = this.state.notes;
-    const noteIndex = this.findNote(id);
-    if(noteIndex < 0) {
-      return;
-    }
-    this.setState({
-      notes: notes.slice(0, noteIndex).concat(notes.slice(noteIndex + 1))
-    });
-  }
-  findNote(id) {
-    const notes = this.state.notes;
-    const noteIndex = notes.findIndex((note) => note.id === id);
-    if(noteIndex < 0) {
-      console.warn('Failed to find note', notes, id);
-    }
-    return noteIndex;
+    NoteActions.delete(id);
   }
 }
