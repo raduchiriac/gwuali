@@ -1,3 +1,4 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import uuid from 'uuid';
 
@@ -32,9 +33,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <MuiThemeProvider>
         <NoteList key='xxa' />
-      </div>
+      </MuiThemeProvider>
     );
   }
 }

@@ -2,16 +2,21 @@ import React from 'react';
 import AltContainer from 'alt-container';
 import uuid from 'uuid';
 import Note from './Note.jsx';
-import {List, RaisedButton, SelectableContainerEnhance} from 'material-ui';
+import {List, RaisedButton, MakeSelectable} from 'material-ui';
+import {grey100} from 'material-ui/styles/colors';
 
 import NoteActions from '../actions/NoteAction';
 import NoteStore from '../stores/NoteStore';
 
 import connect from '../decorators/connect';
 
-let SelectableList = SelectableContainerEnhance(List);
+let SelectableList = MakeSelectable(List);
 
 const styles = {
+  list: {
+    background: `${grey100}`,
+    borderRadius: '6px 6px 0 0'
+  },
   exampleImageInput: {
     width: '100%',
     textAlign: 'right',
@@ -26,7 +31,7 @@ export default class NoteList extends React.Component {
         <AltContainer
           stores={[NoteStore]}
           >
-          <List>
+          <List style={styles.list}>
             {NoteStore.getState().notes.map(this.renderNote.bind(this))}
           </List>
         </AltContainer>

@@ -1,10 +1,10 @@
 import React from 'react';
 import {ListItem, TextField, IconButton, FontIcon, SvgIcon} from 'material-ui';
-import Colors from 'material-ui/lib/styles/colors';
+import {red500} from 'material-ui/styles/colors';
 
 const styles = {
   noteEdit: {
-    paddingLeft: '16px',
+    paddingLeft: 16,
     width: 'calc(100% - 48px)',
   },
   note: {
@@ -12,8 +12,8 @@ const styles = {
   },
   deleteNoteIco: {
     position: 'absolute',
-    right: '0',
-    top: '0',
+    right: 0,
+    top: 0,
     color:'black'
   }
 };
@@ -81,7 +81,7 @@ export default class Note extends React.Component {
       <IconButton
         style={styles.deleteNoteIco}
         onClick={this.props.onDelete}>
-        <FontIcon hoverColor={Colors.red500} className="material-icons">delete</FontIcon>
+        <FontIcon hoverColor={red500} className="material-icons">delete</FontIcon>
       </IconButton>
     )
   }
