@@ -1,4 +1,5 @@
 import React from 'react';
+import AltContainer from 'alt-container';
 import uuid from 'uuid';
 import Note from './Note.jsx';
 import {List, RaisedButton, SelectableContainerEnhance} from 'material-ui';
@@ -7,7 +8,6 @@ import NoteActions from '../actions/NoteAction';
 import NoteStore from '../stores/NoteStore';
 
 import connect from '../decorators/connect';
-
 
 let SelectableList = SelectableContainerEnhance(List);
 
@@ -21,12 +21,15 @@ const styles = {
 @connect(NoteStore)
 export default class NoteList extends React.Component {
   render() {
-    const notes = this.props.notes;
     return (
       <div>
-        <List>
-          {notes.map(this.renderNote.bind(this))}
-        </List>
+        <AltContainer
+          stores={[NoteStore]}
+          >
+          <List>
+            {NoteStore.getState().notes.map(this.renderNote.bind(this))}
+          </List>
+        </AltContainer>
         <RaisedButton
           label="Add"
           hoverColor="#DEDEDE"

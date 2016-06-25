@@ -13,19 +13,18 @@ export default class App extends React.Component {
       include_docs: true,
       attachments: true
     }).then(function (result) {
-      !!result.total_rows || console.log('a');
     });
 
-    let notes = [{
-      _id: uuid.v4(),
-      task: 'Publish Electron'
-    }, {
-      _id: uuid.v4(),
-      task: 'Learn React'
-    }, {
-      _id: uuid.v4(),
-      task: 'What is Flux?'
-    }];
+    // let notes = [{
+    //   _id: uuid.v4(),
+    //   task: 'Publish Electron'
+    // }, {
+    //   _id: uuid.v4(),
+    //   task: 'Learn React'
+    // }, {
+    //   _id: uuid.v4(),
+    //   task: 'What is Flux?'
+    // }];
     // notes.forEach(function(note){
     //   db.put(note);
     // });
@@ -34,7 +33,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <NoteList id='xxa' />
+        <NoteList key='xxa' />
       </div>
     );
   }
